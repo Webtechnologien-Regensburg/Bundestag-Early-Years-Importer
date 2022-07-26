@@ -43,5 +43,4 @@ Der Skript exportiert alle relevanten Informationen aus diesen Dateien. Die expo
 
 ### TODOs
 
-- Ergänzen Sie im Modul `DatabaseImporter.js` die notwendige Funktionalität zum Erstellen eines geeigneten Datenbankschemas
-- Vervollständigen Sie im Modul `DatabaseImporter.js` die Methode zum Überführen des JavaScript-OBjekts in die Datenbank
+Ergänzen Sie im Modul `DatabaseImporter.js` die notwendige Queryies zum Erstellen eines geeigneten Datenbankschemas und zum Einfügen neuer Einträge. Die relevanten Stellen sind mit einem `// TODO`-Kommentar gekennzeichnet.

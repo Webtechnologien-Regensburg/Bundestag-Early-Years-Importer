@@ -1,18 +1,15 @@
-/* eslint-env node */
-
+import "dotenv/config";
+import Logger from "./lib/utils/Logger.js";
 import DatabaseImporter from "./lib/DatabaseImporter.js";
 import SpeechParser from "./lib/SpeechParser.js";
 
-let dbFile = process.argv[2],
-    dataPath = process.argv[3];
-
-function onSpeechParsed(movie) {
-    DatabaseImporter.importSpeech(movie);
+async function onSpeechParsed(speech) {
+    await DatabaseImporter.importSpeech(speech);
 }
 
-function onDatabaseReady() {
+(async function () {
+    Logger.enable();
+    await DatabaseImporter.prepare();
     SpeechParser.setSpeechParserListener(onSpeechParsed);
-    SpeechParser.parseSpeechesFrom(dataPath);
-}
-
-DatabaseImporter.prepare(dbFile, onDatabaseReady);
+    SpeechParser.parseSpeechesFrom(process.env.DATA_PATH);
+}());
